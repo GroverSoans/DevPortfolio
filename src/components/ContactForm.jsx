@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser"
 import { useState } from "react"
 import toast, { Toaster } from "react-hot-toast"
+import { motion } from "framer-motion"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -67,7 +68,11 @@ const ContactForm = () => {
         <h2 className="my-8 text-center text-4xl font-semibold tracking-tighter">
             Lets Connect
         </h2>
-        <form onSubmit={handleSubmit}>
+        <motion.form 
+        onSubmit={handleSubmit}
+        initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{duration: 0.8, delay:1}}>
             <div className="mb-4">
                 <input type="text"
                 id="name"
@@ -78,7 +83,13 @@ const ContactForm = () => {
                 className="mb-8 w-full appearance-none rounded-lg border border-gray-900 bg-transparent px-3 py-2 text-sm
                 focus:border-gray-400 focus:outline-none"/>
                 {error.name && (
-                    <p className="text-sm text-pink-700">{error.name}</p>
+                    <motion.p 
+                    className="text-sm text-pink-700"
+                    initial={{opacity:0}}
+                    whileInView={{opacity:1}}
+                    aria-live="polite">
+                        {error.name}
+                    </motion.p>
                 )}
             </div>
             <div className="mb-4">
@@ -91,7 +102,13 @@ const ContactForm = () => {
                 className="mb-8 w-full appearance-none rounded-lg border border-gray-900 bg-transparent px-3 py-2 text-sm
                 focus:border-gray-400 focus:outline-none"/>
                 {error.email && (
-                    <p className="text-sm text-pink-700">{error.email}</p>
+                    <motion.p 
+                    className="text-sm text-pink-700"
+                    initial={{opacity:0}}
+                    whileInView={{opacity:1}}
+                    aria-live="polite">
+                        {error.email}
+                    </motion.p>
                 )}
             </div>
             <div className="mb-4">
@@ -104,7 +121,13 @@ const ContactForm = () => {
                 className="mb-8 w-full appearance-none rounded-lg border border-gray-900 bg-transparent px-3 py-2 text-sm
                 focus:border-gray-400 focus:outline-none" rows="4"/>
                 {error.message && (
-                    <p className="text-sm text-pink-700">{error.message}</p>
+                    <motion.p 
+                    className="text-sm text-pink-700"
+                    initial={{opacity:0}}
+                    whileInView={{opacity:1}}
+                    aria-live="polite">
+                        {error.message}
+                    </motion.p>
                 )}
             </div>
             <button type="submit" className={`mb-8 w-full rounded bg-yellow-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-yellow-500 ${
@@ -112,7 +135,7 @@ const ContactForm = () => {
                 disabled={isSending}>
                     {isSending ? "Sending..." : "Send"}
                 </button>
-        </form>
+        </motion.form>
     </div>
   )
 }

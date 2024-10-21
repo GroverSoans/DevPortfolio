@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Card = ({image, title, subtitle, link}) => {
   return (
     <a href={link} className='m-4 block max-w-sm overflow-hidden rounded-lg'>
@@ -15,5 +17,12 @@ const Card = ({image, title, subtitle, link}) => {
     </a>
   )
 }
+
+Card.propTypes = {
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    link: PropTypes.string.isRequired,
+};
 
 export default Card

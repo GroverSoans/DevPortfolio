@@ -126,7 +126,7 @@ export const SOCIAL_MEDIA_LINKS = [
     icon: <FaDiscord fontSize={25} className="hover:opacity-80" />,
   },
   {
-    href: "https://github.com/",
+    href: "https://github.com/GroverSoans",
     icon: <FaGithub fontSize={25} className="hover:opacity-80" />,
   },
   {
